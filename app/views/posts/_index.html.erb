@@ -1,0 +1,23 @@
+<% Post.all.in_groups_of(4) do |group| %>
+  <div class="row">
+    <% group.compact.each do |idea| %>
+      <div class="col-md-6">
+        <div class="panel panel-default" style ="padding:7px;">
+          <div class="panel-body text-center product-body">
+            <%=link_to image_tag(idea.post_picture_url, :width => 170, :height => 150),post_path(idea) %> 
+            
+      
+          </div>
+          <div class="panel-footer text-center" style="background-color:#828270;padding:15px;height:70px;">
+            <span itemprop="offers" itemscope >
+              <span class="price selling lead" itemprop="price" >
+                <%=idea.title%>  
+              </span>
+            </span>
+          </div>
+        </div> 
+      </div>
+    <% end %>
+  </div>
+  <br>
+<% end %>  
